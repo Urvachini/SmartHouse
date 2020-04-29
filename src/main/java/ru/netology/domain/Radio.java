@@ -80,6 +80,25 @@ public class Radio {
         this.currentVolume = currentVolume;
     }
 
+    public void increaseCurrentVolume() {
+        int nextVolume = currentVolume + 1;
+
+        if (nextVolume > maxVolume) {
+            nextVolume = maxVolume;
+        }
+        this.currentVolume = nextVolume;
+    }
+
+    public void decreaseCurrentVolume() {
+        int prevVolume = currentVolume - 1;
+
+        if (prevVolume < minVolume) {
+            prevVolume = minVolume;
+        }
+        this.currentVolume = prevVolume;
+    }
+
+
     public int getMinVolume() {
         return minVolume;
     }
