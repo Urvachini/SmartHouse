@@ -133,5 +133,4 @@ class ConditionerAdvancedTest {
         //assert
         assertEquals(0, conditioner.getCurrentTemperature());
     }
-
 }
