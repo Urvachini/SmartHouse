@@ -7,6 +7,38 @@ import static org.junit.jupiter.api.Assertions.*;
 class RadioTest {
 
     @Test
+    public void shouldCreate() {
+        Radio radio = new Radio();
+
+        String expected = "Molodost";
+
+        assertNull(radio.getName());
+        radio.setName(expected);
+        assertEquals(expected, radio.getName());
+
+    }
+
+    @Test
+    public void shouldSetCurrentStationAboveMax() {
+        Radio radio = new Radio();
+        radio.setMaxStation(9);
+        radio.setMinStation(0);
+
+        radio.setCurrentStation(10);
+        assertEquals(0, radio.getCurrentStation());
+    }
+
+    @Test
+    public void shouldSetCurrentStationUnderMin() {
+        Radio radio = new Radio();
+        radio.setMaxStation(9);
+        radio.setMinStation(0);
+
+        radio.setCurrentStation(-1);
+        assertEquals(0, radio.getCurrentStation());
+    }
+
+    @Test
     public void shouldSetCurrentStation() {
         Radio radio = new Radio();
         radio.setMaxStation(9);
@@ -122,6 +154,26 @@ class RadioTest {
 
         radio.setCurrentVolume(7);
         assertEquals(7, radio.getCurrentVolume());
+    }
+
+    @Test
+    public void shouldSetCurrentVolumeAboveMax() {
+        Radio radio = new Radio();
+        radio.setMaxVolume(10);
+        radio.setMinVolume(0);
+
+        radio.setCurrentVolume(11);
+        assertEquals(0, radio.getCurrentVolume());
+    }
+
+    @Test
+    public void shouldSetCurrentVolumeUnderMin() {
+        Radio radio = new Radio();
+        radio.setMaxVolume(10);
+        radio.setMinVolume(0);
+
+        radio.setCurrentVolume(-1);
+        assertEquals(0, radio.getCurrentVolume());
     }
 
     @Test
