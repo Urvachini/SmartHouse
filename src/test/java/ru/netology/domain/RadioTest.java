@@ -8,11 +8,11 @@ class RadioTest {
 
     @Test
     public void shouldCreate() {
-        Radio radio = new Radio();
+        Radio radio = new Radio("Molodost",10, 10, 0, 1, 0, 100);
 
         String expected = "Molodost";
 
-        assertNull(radio.getName());
+        //assertNull(radio.getName());
         radio.setName(expected);
         assertEquals(expected, radio.getName());
 
@@ -20,17 +20,18 @@ class RadioTest {
 
     @Test
     public void shouldSetCurrentStationAboveMax() {
-        Radio radio = new Radio();
+        Radio radio = new Radio("Molodost",9, 9, 0, 1, 0, 100);
         radio.setMaxStation(9);
         radio.setMinStation(0);
 
-        radio.setCurrentStation(10);
+        radio.setCurrentStation(9);
+        radio.increaseCurrentStation();
         assertEquals(0, radio.getCurrentStation());
     }
 
     @Test
     public void shouldSetCurrentStationUnderMin() {
-        Radio radio = new Radio();
+        Radio radio = new Radio("Molodost", 0, 9, 0, 1, 0, 100);
         radio.setMaxStation(9);
         radio.setMinStation(0);
 
