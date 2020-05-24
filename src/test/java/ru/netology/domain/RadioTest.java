@@ -103,6 +103,7 @@ class RadioTest {
         radio.increaseCurrentStation();
         //assert
         assertEquals(1,radio.getCurrentStation());
+
     }
 
     @Test
